@@ -1,15 +1,12 @@
 import axios from 'axios'
-import formatSeasons from '../utils/formatSeasons'
 
-const fetchShow = (setShow, setSeasons) => {
-    axios
+const fetchShow = () => {
+    return axios
       .get(
         "https://api.tvmaze.com/singlesearch/shows?q=stranger-things&embed=episodes"
       )
-      .then(res => {
-        setShow(res.data);
-        return setSeasons(formatSeasons(res.data._embedded.episodes));
-      });
+      .then(res => { return res.data
+        });
   };
 
   export default fetchShow
